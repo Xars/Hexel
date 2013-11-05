@@ -7,3 +7,7 @@ builds/*/*.config
 builds/*/*/
 builds/*.zip
 hexel.config
+.classpath
+.project
+.settings
+target

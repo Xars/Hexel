@@ -13,6 +13,12 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 public class ChunkFile {
+	static{
+		File out = new File(getFolder());
+		if(!out.exists()){
+			out.mkdirs();
+		}
+	}
 
     private static Object lock = new Object();
     public static void save(Chunk chunk){

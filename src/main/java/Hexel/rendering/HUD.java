@@ -3,22 +3,22 @@ package Hexel.rendering;
 import javax.media.opengl.GLAutoDrawable;
 
 import com.jogamp.opengl.util.awt.Overlay;
+
 import java.awt.Graphics2D;
 import java.awt.Color;
-
 import java.awt.Stroke;
 import java.awt.BasicStroke;
-
 import java.awt.Font;
-
 import java.io.File;
+import java.io.InputStream;
+
 import javax.imageio.ImageIO;
+
 import java.awt.image.BufferedImage;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 
 import Hexel.Stage;
-
 import Hexel.things.Player;
 import Hexel.blocks.Block;
 
@@ -44,7 +44,9 @@ public class HUD {
 
     public HUD(){
         try {
-            this.tex = ImageIO.read(new File("img/atlas.png"));
+//            this.tex = ImageIO.read(new File("img/atlas.png"));
+        	InputStream stream = ChunkRenderer.class.getResourceAsStream("/img/atlas.png");
+        	this.tex = ImageIO.read(stream);
         } catch(Exception e){
             System.out.println((e));
             System.exit(1);

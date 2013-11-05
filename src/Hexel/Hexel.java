@@ -15,7 +15,12 @@ import Hexel.util.StageChangeListener;
 
 import Hexel.blocks.*;
 
-public class Hexel implements TickHandler, StageChangeListener  { public static void main(String[] args){ new Hexel(); }
+public class Hexel implements TickHandler, StageChangeListener  {
+    public static void main(String[] args){
+        new Hexel();
+    }
+
+    public static final String workingDir = System.getProperty("user.dir");
 
     private PCInput input;
 

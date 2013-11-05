@@ -1,8 +1,8 @@
 package Hexel.chunk;
 
-import Hexel.chunk.Chunk;
 import Hexel.math.Vector3i;
 
+import Hexel.Hexel;
 import java.io.File;
 
 import java.io.FileOutputStream;
@@ -20,13 +20,15 @@ public class ChunkFile {
             Vector3i p = chunk.getXYZ();
 
             String path = getPath(p);
+            File file = new File(Hexel.workingDir, path);
 
             try {
-                FileOutputStream fileOut = new FileOutputStream(path);
-                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                if(!file.exists() && !file.createNewFile()){
+                    System.out.println("Failed to create file!");
+                }
+                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
                 out.writeObject(chunk);
                 out.close();
-                fileOut.close();
             } catch(IOException e){
                 e.printStackTrace();
                 System.exit(1);

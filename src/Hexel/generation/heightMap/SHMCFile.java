@@ -1,5 +1,6 @@
 package Hexel.generation.heightMap;
 
+import Hexel.Hexel;
 import Hexel.math.Vector2i;
 
 import java.io.File;
@@ -12,16 +13,19 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 public class SHMCFile {
+
     public static void save(Vector2i p, SmoothHeightMapChunk shmc){
 
         String path = getPath(p);
+        File file = new File(Hexel.workingDir, path);
 
         try {
-            FileOutputStream fileOut = new FileOutputStream(path);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            if(!file.exists() && !file.createNewFile()){
+                System.out.println("Failed to create file!");
+            }
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
             out.writeObject(shmc);
             out.close();
-            fileOut.close();
         } catch(IOException e){
             e.printStackTrace();
             System.exit(1);

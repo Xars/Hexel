@@ -38,20 +38,21 @@ public class ChunkRenderer {
         this.chunks = chunks;
     }
 
-    public void init(GL2 gl) {
+    public void init(GL2 gl){
         InputStream stream = null;
-        try {
-            stream = new FileInputStream(new File("img/atlas.png"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
+    //		try {
+    //			stream = new FileInputStream(new File("img/atlas.png"));
+          stream = ChunkRenderer.class.getResourceAsStream("/img/atlas.png");
+    //		} catch (FileNotFoundException e) {
+    //			e.printStackTrace();
+    //			System.exit(1);
+    //		}
         TextureData data = null;
         try {
-            data = TextureIO.newTextureData(gl.getGLProfile(), stream, false, "png");
+          data = TextureIO.newTextureData(gl.getGLProfile(), stream, false, "png");
         } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
+          e.printStackTrace();
+          System.exit(1);
         }
         ttex = TextureIO.newTexture(data);
 

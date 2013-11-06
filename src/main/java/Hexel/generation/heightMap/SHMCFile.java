@@ -4,18 +4,16 @@ import Hexel.Hexel;
 import Hexel.math.Vector2i;
 
 import java.io.File;
-
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
-
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 public class SHMCFile {
 
     public static void save(Vector2i p, SmoothHeightMapChunk shmc){
-
+    	
         String path = getPath(p);
         File file = new File(Hexel.workingDir, path);
 
@@ -28,7 +26,7 @@ public class SHMCFile {
             out.close();
         } catch(IOException e){
             e.printStackTrace();
-            System.exit(1);
+            //System.exit(1);
         }
 
     }

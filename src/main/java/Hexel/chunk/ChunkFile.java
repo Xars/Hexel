@@ -6,6 +6,12 @@ import Hexel.math.Vector3i;
 import java.io.*;
 
 public class ChunkFile {
+	static{
+		File out = new File(getFolder());
+		if(!out.exists()){
+			out.mkdirs();
+		}
+	}
 
     private static final Object lock = new Object();
 
@@ -25,7 +31,7 @@ public class ChunkFile {
                 out.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                System.exit(1);
+                //System.exit(1);
             }
             chunk.modified = false;
         }

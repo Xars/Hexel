@@ -10,6 +10,18 @@ goals:
 * implement a world generator that creates highly appealing terrain
 * allow players to, if they desire, always move towards increasingly dangerous situations
 
+install with maven
+-----
+The project is now mavenised. To run using maven use:
+	 
+	 MAVEN_OPTS=-Xmx1024m mvn install exec:java -Dexec.mainClass="Hexel.Hexel"
+
+To prepare the project as an eclipse project try:
+
+	mvn install eclipse:eclipse
+
+This should make the game more likely to "work out of the box"
+
 playing the game:
 -----
 

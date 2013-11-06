@@ -11,7 +11,13 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 public class SHMCFile {
-
+	static{
+		File out = new File(getFolder());
+		if(!out.exists()){
+			out.mkdirs();
+		}
+	}
+	
     public static void save(Vector2i p, SmoothHeightMapChunk shmc){
     	
         String path = getPath(p);

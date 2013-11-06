@@ -8,13 +8,13 @@ public class GrassBlock extends Block {
   }
 
     public int getTopTextureIndex(){
-        return 1;
+        return TEX.getTextureIndex(1, 0);
     }
     public int getBottomTextureIndex(){
-        return 2 + TEX.HOR*1; 
+        return TEX.getTextureIndex(2, 1);
     }
     public int getSideTextureIndex(){
-        return 1 + TEX.HOR*1; 
+        return TEX.getTextureIndex(1, 1);
     }
     public double getFracBottom(){ return 0; }
     public double getFracTop(){ return 1; }

@@ -14,13 +14,13 @@ public class WoodBlock extends Block {
     public int height;
 
     public int getTopTextureIndex(){
-        return 3+TEX.HOR*1; 
+        return TEX.getTextureIndex(3, 1);
     }
     public int getBottomTextureIndex(){
-        return 3+TEX.HOR*1; 
+        return getTopTextureIndex();
     }
     public int getSideTextureIndex(){
-        return 3; 
+        return TEX.getTextureIndex(3, 0);
     }
 
     public double getFracBottom(){ return 0; }

@@ -9,13 +9,13 @@ public class SeedBlock extends Block {
   }
 
     public int getTopTextureIndex(){
-        return TEX.HOR*2; 
+        return TEX.getTextureIndex(0, 2);
     }
     public int getBottomTextureIndex(){
-        return TEX.HOR*2; 
+        return getTopTextureIndex();
     }
     public int getSideTextureIndex(){
-        return TEX.HOR*2; 
+        return getTopTextureIndex();
     }
 
     public double getFracBottom(){ return 0; }

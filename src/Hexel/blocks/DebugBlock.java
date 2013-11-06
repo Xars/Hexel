@@ -11,13 +11,13 @@ public class DebugBlock extends Block {
 
 
     public int getTopTextureIndex(){
-        return TEX.HOR*1; 
+        return TEX.getTextureIndex(0, 1);
     }
     public int getBottomTextureIndex(){
-        return 0; 
+        return TEX.getTextureIndex(0, 0);
     }
     public int getSideTextureIndex(){
-        return 0; 
+        return getBottomTextureIndex();
     }
 
     public double getFracBottom(){ return 0; }

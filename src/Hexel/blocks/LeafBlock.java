@@ -8,13 +8,13 @@ public class LeafBlock extends Block {
   }
 
     public int getTopTextureIndex(){
-        return 1+TEX.HOR*2; 
+        return TEX.getTextureIndex(1, 2);
     }
     public int getBottomTextureIndex(){
-        return 1+TEX.HOR*2; 
+        return getTopTextureIndex();
     }
     public int getSideTextureIndex(){
-        return 1+TEX.HOR*2; 
+        return getTopTextureIndex();
     }
     public double getFracBottom(){ return 0; }
     public double getFracTop(){ return 1; }

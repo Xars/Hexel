@@ -10,7 +10,7 @@ public class GlassBlock extends Block {
 
     @Override
     public int getTopTextureIndex() {
-        return 3 + TEX.HOR*2;
+        return TEX.getTextureIndex(3, 2);
     }
 
     @Override

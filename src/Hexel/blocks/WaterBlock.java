@@ -24,13 +24,13 @@ public class WaterBlock extends Block {
     }
 
     public int getTopTextureIndex(){
-        return 2+TEX.HOR*2; 
+        return TEX.getTextureIndex(2, 2);
     }
     public int getBottomTextureIndex(){
-        return 2+TEX.HOR*2; 
+        return getTopTextureIndex();
     }
     public int getSideTextureIndex(){
-        return 2+TEX.HOR*2; 
+        return getTopTextureIndex();
     }
 
     public double getFracBottom(){ return bottom*1.0/MAX_VOLUME; }

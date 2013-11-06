@@ -7,24 +7,24 @@ public class FrameRateTracker {
 
     public long lastTime = 0;
 
-    public FrameRateTracker(int n){
+    public FrameRateTracker(int n) {
         last = new long[n];
         i = 0;
     }
 
-    public void hit(){
+    public void hit() {
         last[i] = System.currentTimeMillis() - lastTime;
-        i = (i+1) % last.length;
+        i = (i + 1) % last.length;
 
         lastTime = System.currentTimeMillis();
     }
 
-    public double avg(){
+    public double avg() {
         double sum = 0;
-        for (int i = 0; i < last.length; i++){
-            sum += last[i];
+        for (long aLast : last) {
+            sum += aLast;
         }
-        return 1000.0/(sum / this.last.length);
+        return 1000.0 / (sum / this.last.length);
     }
 }
 

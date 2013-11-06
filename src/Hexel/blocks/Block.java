@@ -14,6 +14,8 @@ public abstract class Block implements java.io.Serializable {
 
     public abstract double getMaxHealth();
     public double health;
-
+    
+    
+    public abstract String getName();
 }
 

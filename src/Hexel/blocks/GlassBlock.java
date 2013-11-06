@@ -47,4 +47,8 @@ public class GlassBlock extends Block {
     public double getMaxHealth() {
         return .3;
     }
+
+    public String getName() {
+        return "glass";
+    }
 }

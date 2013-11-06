@@ -38,6 +38,10 @@ public class LeafBlock extends Block {
     public boolean isTransparent() {
         return true;
     }
+
+    public String getName() {
+        return "leaves";
+    }
 }
 
 

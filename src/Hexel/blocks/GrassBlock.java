@@ -39,5 +39,9 @@ public class GrassBlock extends Block {
         return false;
     }
 
+    public String getName() {
+        return "grass";
+    }
+
 }
 

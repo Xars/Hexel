@@ -39,6 +39,10 @@ public class SeedBlock extends Block {
     public boolean isTransparent() {
         return false;
     }
+
+    public String getName() {
+        return "seed";
+    }
 }
 
 

@@ -22,6 +22,8 @@ playing the game:
 contributing:
 -----
 
+* See the issues page if you have any ideas or want to see what we're thinking
+
 1. fork the repository
 2. copy hexel.config.default to hexel.config (or run setup.sh)
 3. download [lib](https://mega.co.nz/#!t00mABjS!Gyf3DznIZJR-aHdIzVWt-VUZ0ltAltxAHjoeKIjybdY) and extract into lib/

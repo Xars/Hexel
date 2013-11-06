@@ -106,6 +106,9 @@ public class Hexel implements TickHandler, StageChangeListener  {
             else if (keyTapped == config.controls.get("gotoLeafBlock")){
                 player.blockToPlace = LeafBlock.class;//WaterBlock.blocks[0][8];
             }
+            else if (keyTapped == config.controls.get("gotoGlassBlock")){
+                player.blockToPlace = GlassBlock.class;
+            }
             else if (keyTapped == config.controls.get("createBlock")){
               player.createBlock = true;
             }

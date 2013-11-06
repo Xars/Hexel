@@ -1,12 +1,7 @@
 package Hexel.generation;
 
+import Hexel.blocks.*;
 import Hexel.generation.heightMap.HexBlockHeightMaps;
-
-import Hexel.blocks.Block;
-import Hexel.blocks.EmptyBlock;
-import Hexel.blocks.GrassBlock;
-import Hexel.blocks.StoneBlock;
-import Hexel.blocks.WoodBlock;
 
 import Hexel.math.Vector2i;
 
@@ -24,6 +19,7 @@ public class TerrainMap {
     private static final GrassBlock grassBlock = new GrassBlock();
     private static final StoneBlock stoneBlock = new StoneBlock();
     private static final WoodBlock woodBlock = new WoodBlock();
+    private static final GlassBlock glassBlock = new GlassBlock();
 
     public TerrainMap(Cleanup cleanup){
         hbhms = new HexBlockHeightMaps(cleanup);

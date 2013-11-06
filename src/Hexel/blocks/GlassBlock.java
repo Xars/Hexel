@@ -35,7 +35,7 @@ public class GlassBlock extends Block {
 
     @Override
     public Block clone() {
-        return this;
+        return new GlassBlock();
     }
 
     @Override

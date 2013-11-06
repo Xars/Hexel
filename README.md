@@ -19,6 +19,10 @@ The project is now mavenised. To run using maven use:
 To prepare the project as an eclipse project try:
 
 	mvn install eclipse:eclipse
+	
+you may also have to make eclipse aware of your maven classpath
+
+        http://www.mkyong.com/maven/how-to-configure-m2_repo-variable-in-eclipse-ide/
 
 This should make the game more likely to "work out of the box"
 
@@ -37,13 +41,12 @@ contributing:
 * See the issues page if you have any ideas or want to see what we're thinking
 
 1. fork the repository
-2. copy hexel.config.default to hexel.config (or run setup.sh)
-3. download [lib](https://mega.co.nz/#!t00mABjS!Gyf3DznIZJR-aHdIzVWt-VUZ0ltAltxAHjoeKIjybdY) and extract into lib/
-4. make a new git branch
-5. import into eclipse
-6. write code
-7. make commit
-8. submit pull request!
+2. make a new git branch
+3. see the 'install with maven' section
+4. import into eclipse
+5. write code
+6. make commit
+7. submit pull request!
 
 screenshots:
 -----

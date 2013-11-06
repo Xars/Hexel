@@ -2,47 +2,49 @@ package Hexel.blocks;
 
 import Hexel.rendering.TEX;
 
-public class WoodBlock extends Block {
-
-    public double getMaxHealth() {
-        return 1;
+public class GlassBlock extends Block {
+    public GlassBlock(){
+        super();
+        this.health = .3;
     }
 
-    public WoodBlock() {
-        this.health = 1;
-    }
-
-    public int maxHeight;
-    public int height;
-
+    @Override
     public int getTopTextureIndex() {
-        return TEX.getTextureIndex(3, 1);
+        return TEX.getTextureIndex(3, 2);
     }
 
+    @Override
     public int getBottomTextureIndex() {
         return getTopTextureIndex();
     }
 
+    @Override
     public int getSideTextureIndex() {
-        return TEX.getTextureIndex(3, 0);
+        return getTopTextureIndex();
     }
 
+    @Override
     public double getFracBottom() {
         return 0;
     }
 
+    @Override
     public double getFracTop() {
         return 1;
     }
 
+    @Override
     public Block clone() {
-        return this;
+        return new GlassBlock();
     }
 
+    @Override
     public boolean isTransparent() {
-        return false;
+        return true;
+    }
+
+    @Override
+    public double getMaxHealth() {
+        return .3;
     }
 }
-
-
-

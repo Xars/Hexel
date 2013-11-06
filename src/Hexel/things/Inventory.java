@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import Hexel.blocks.Block;
 import Hexel.blocks.DebugBlock;
+import Hexel.blocks.GlassBlock;
 import Hexel.blocks.WaterBlock;
 
 public class Inventory {
@@ -13,6 +14,7 @@ public class Inventory {
   public Inventory(){
     inventory.put(DebugBlock.class, 1000000);
     inventory.put(WaterBlock.class, 1000000);
+    inventory.put(GlassBlock.class, 1000000);
   }
 
   public void addBlock(Block block){

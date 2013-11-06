@@ -66,6 +66,10 @@ public class WaterBlock extends Block {
     public boolean isTransparent() {
         return true;
     }
+
+    public String getName() {
+        return "water";
+    }
 }
 
 

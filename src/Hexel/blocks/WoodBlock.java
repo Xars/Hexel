@@ -42,6 +42,10 @@ public class WoodBlock extends Block {
     public boolean isTransparent() {
         return false;
     }
+
+    public String getName() {
+        return "wood";
+    }
 }
 
 

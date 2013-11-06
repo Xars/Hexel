@@ -42,5 +42,9 @@ public class DebugBlock extends Block {
         return false;
     }
 
+    public String getName() {
+        return "debug";
+    }
+
 }
 

@@ -39,6 +39,10 @@ public class StoneBlock extends Block {
     public boolean isTransparent() {
         return false;
     }
+
+    public String getName() {
+        return "stone";
+    }
 }
 
 

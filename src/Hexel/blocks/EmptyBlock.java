@@ -32,5 +32,9 @@ public class EmptyBlock extends Block {
     public boolean isTransparent() {
         return true;
     }
+
+    public String getName() {
+        return "empty";
+    }
 }
 

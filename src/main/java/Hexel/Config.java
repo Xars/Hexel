@@ -14,7 +14,7 @@ public class Config {
     public Config(){
         try {
 //            Scanner in = new Scanner(new FileReader("hexel.config"));
-        	Scanner in = new Scanner(new InputStreamReader(Config.class.getResourceAsStream("/hexel.config")));
+        	Scanner in = new Scanner(new InputStreamReader(Config.class.getResourceAsStream("/hexel.config.default")));
 
             while (in.hasNextLine()){
                 String s = in.nextLine();

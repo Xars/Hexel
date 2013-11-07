@@ -6,45 +6,42 @@ import Hexel.math.Vector3i;
 import java.io.*;
 
 public class ChunkFile {
+	private static final File dir = new File("state/chunks/");
+	private static final Object lock = new Object();
 	static{
-		File out = new File(getFolder());
-		if(!out.exists()){
-			out.mkdirs();
+		if(!dir.exists()){
+			dir.mkdirs();
 		}
 	}
-
-    private static final Object lock = new Object();
 
     public static void save(Chunk chunk) {
         synchronized (lock) {
             Vector3i p = chunk.getXYZ();
 
-            String path = getPath(p);
-            File file = new File(Hexel.workingDir, path);
+            File file = new File(getPath(p));
 
             try {
                 if (!file.exists() && !file.createNewFile()) {
                     System.out.println("Failed to create file!");
+                    throw new IOException();
                 }
                 ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+                chunk.modified = false;
                 out.writeObject(chunk);
                 out.close();
             } catch (IOException e) {
                 e.printStackTrace();
                 //System.exit(1);
             }
-            chunk.modified = false;
         }
 
     }
 
     public static Chunk load(Vector3i p) {
-
         synchronized (lock) {
             Chunk c = null;
             try {
-                String path = getPath(p);
-                FileInputStream fileIn = new FileInputStream(path);
+                FileInputStream fileIn = new FileInputStream(getPath(p));
                 ObjectInputStream in = new ObjectInputStream(fileIn);
                 c = (Chunk) in.readObject();
                 in.close();
@@ -57,21 +54,16 @@ public class ChunkFile {
                 e.printStackTrace();
                 System.exit(1);
             }
-            c.modified = false;
             return c;
         }
     }
 
     public static boolean has(Vector3i p) {
-        synchronized (lock) {
-            String path = getPath(p);
-            File f = new File(path);
-            return f.exists();
-        }
+            return new File(getPath(p)).exists();
     }
 
     private static String getFolder() {
-        return "state/chunks/";
+        return dir.getAbsolutePath();
     }
 
     private static String getFilename(Vector3i p) {

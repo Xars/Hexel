@@ -20,8 +20,7 @@ public class SHMCFile {
 	
     public static void save(Vector2i p, SmoothHeightMapChunk shmc){
     	
-        String path = getPath(p);
-        File file = new File(Hexel.workingDir, path);
+        File file = new File(getPath(p));
 
         try {
             if(!file.exists() && !file.createNewFile()){
@@ -42,8 +41,7 @@ public class SHMCFile {
 
         SmoothHeightMapChunk shmc = null;
         try {
-            String path = getPath(p);
-            FileInputStream fileIn = new FileInputStream(path);
+            FileInputStream fileIn = new FileInputStream(getPath(p));
             ObjectInputStream in = new ObjectInputStream(fileIn);
             shmc = (SmoothHeightMapChunk) in.readObject();
             in.close();
@@ -60,8 +58,7 @@ public class SHMCFile {
     }
 
     public static boolean has(Vector2i p){
-        File f = new File(dir, getFilename(p));
-        return f.exists();
+        return new File(getPath(p)).exists();
     }
 
     private static String getFolder(){

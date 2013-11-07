@@ -23,32 +23,31 @@ public class Vector3i implements java.io.Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) 
-            return true;
-        if (o == null)
-            return false;
-        if (this.getClass() != o.getClass()) 
-            return false;
-
-        Vector3i that = (Vector3i)o;
-
-        return this.x == that.x && this.y == that.y && this.z == that.z;
+    	if (o instanceof Vector3i){
+    		if (this == o) 
+                return true;
+    		
+            Vector3i that = (Vector3i)o;
+            return this.x == that.x && this.y == that.y && this.z == that.z;
+    	} else {
+    		return false;
+    	}
     }
 
-    public double distance(Vector3i that){
-        double diffX = this.x - that.x;
-        double diffY = this.y - that.y;
-        double diffZ = this.z - that.z;
-        return Math.pow(diffX*diffX + diffY*diffY + diffZ*diffZ, .5);
+    public int distance(Vector3i that){
+        int diffX = this.x - that.x;
+        int diffY = this.y - that.y;
+        int diffZ = this.z - that.z;
+        return diffX*diffX + diffY*diffY + diffZ*diffZ;
     }
 
     @Override
     public int hashCode() {
-        double hash = 23;
+        int hash = 23;
         hash = hash * 31 + x;
         hash = hash * 31 + y;
         hash = hash * 31 + z;
-        return (int)hash;
+        return hash;
     }
 
     @Override

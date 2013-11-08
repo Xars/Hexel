@@ -20,22 +20,20 @@ public class Vector2i {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null)
-            return false;
-        if (this.getClass() != o.getClass())
-            return false;
-
-        Vector2i that = (Vector2i) o;
-
-        return this.x == that.x && this.y == that.y;
+        if (o instanceof Vector2i){
+	    	if (this == o)
+	            return true;
+	        Vector2i that = (Vector2i) o;
+	        return this.x == that.x && this.y == that.y;
+        } else {
+        	return false;
+        }
     }
 
     public double distance(Vector2i that) {
         double diffX = this.x - that.x;
         double diffY = this.y - that.y;
-        return Math.pow(diffX * diffX + diffY * diffY, .5);
+        return diffX * diffX + diffY * diffY;
     }
 
     @Override

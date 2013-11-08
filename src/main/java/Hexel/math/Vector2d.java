@@ -24,16 +24,13 @@ public class Vector2d {
     }
 
     public double distance(Vector2d that){
-        double diffX = this.x - that.x;
-        double diffY = this.y - that.y;
-        return Math.pow(diffX*diffX + diffY*diffY, .5);
+        int diffX = (int)(this.x - that.x);
+        int diffY = (int)(this.y - that.y);
+        return Math.sqrt(diffX*diffX + diffY*diffY);
     }
     
     public static Vector2d Sub(Vector2d a, Vector2d b){
-        Vector2d other = new Vector2d();
-        other.x = a.x - b.x;
-        other.y = a.y - b.y;
-        return other;
+        return new Vector2d(a.x - b.x, a.y - b.y);
     }
 
     public void unit(){
@@ -58,21 +55,19 @@ public class Vector2d {
     }
 
     public double mag(){
-        return Math.pow(x*x + y*y, .5);
+        return Math.sqrt(x*x + y*y);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) 
-            return true;
-        if (o == null)
-            return false;
-        if (this.getClass() != o.getClass()) 
-            return false;
-
-        Vector2d that = (Vector2d)o;
-
-       return this.x == that.x && this.y == that.y;
+        if (o instanceof Vector2d){
+	    	if (this == o) 
+	            return true;
+	        Vector2d that = (Vector2d)o;
+	        return this.x == that.x && this.y == that.y;
+        } else {
+        	return false;
+        }
      }
 
     @Override

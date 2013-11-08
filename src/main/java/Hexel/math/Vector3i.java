@@ -26,7 +26,6 @@ public class Vector3i implements java.io.Serializable {
     	if (o instanceof Vector3i){
     		if (this == o) 
                 return true;
-    		
             Vector3i that = (Vector3i)o;
             return this.x == that.x && this.y == that.y && this.z == that.z;
     	} else {

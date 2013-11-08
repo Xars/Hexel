@@ -33,15 +33,11 @@ public class Vector3d {
         double diffX = this.x - that.x;
         double diffY = this.y - that.y;
         double diffZ = this.z - that.z;
-        return Math.pow(diffX*diffX + diffY*diffY + diffZ*diffZ, .5);
+        return Math.sqrt(diffX*diffX + diffY*diffY + diffZ*diffZ);
     }
     
     public static Vector3d Sub(Vector3d a, Vector3d b){
-        Vector3d other = new Vector3d();
-        other.x = a.x - b.x;
-        other.y = a.y - b.y;
-        other.z = a.z - b.z;
-        return other;
+    	return new Vector3d(a.x - b.x, a.y - b.y, a.z - b.z);
     }
 
     public void unit(){
@@ -58,12 +54,9 @@ public class Vector3d {
     }
 
     public void cross(Vector3d that){
-        double x = this.y*that.z - this.z*that.y;
-        double y = this.z*that.x - this.x*that.z;
-        double z = this.x*that.y - this.y*that.x;
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.x = this.y * that.z - this.z * that.y;
+        this.y = this.z * that.x - this.x * that.z;
+        this.z = this.x * that.y - this.y * that.x;
     }
 
     public void sub(Vector3d that){
@@ -73,7 +66,7 @@ public class Vector3d {
     }
 
     public double dot(double x, double y, double z){
-        return this.x*x + this.y*y + this.z*z;
+        return this.x * x + this.y * y + this.z * z;
     }
 
     public void times(double n){
@@ -83,29 +76,27 @@ public class Vector3d {
     }
 
     public double mag(){
-        return Math.pow(x*x + y*y + z*z, .5);
+        return Math.sqrt(x * x + y * y + z * z);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) 
-            return true;
-        if (o == null)
-            return false;
-        if (this.getClass() != o.getClass()) 
-            return false;
-
-        Vector3d that = (Vector3d)o;
-
-       return this.x == that.x && this.y == that.y && this.z == that.z;
+        if (o instanceof Vector3d){
+	    	if (this == o) 
+	            return true;
+	        Vector3d that = (Vector3d)o;
+	       return this.x == that.x && this.y == that.y && this.z == that.z;
+        } else {
+        	return false;
+        }
      }
 
     @Override
     public int hashCode() {
-        double hash = 23;
-        hash = hash * 31 + x*100000;
-        hash = hash * 31 + y*100000;
-        hash = hash * 31 + z*100000;
+    	double hash = 23;
+        hash = hash * 31 + x * 100000;
+        hash = hash * 31 + y * 100000;
+        hash = hash * 31 + z * 100000;
         return (int)hash;
     }
 
